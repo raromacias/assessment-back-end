@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Back End Assessment</title>
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="randomFortuneButton">Get your fortune told</button>
+    <header>
+      <h1>Who's your Muse?</h1>
+  </header>
+  <main>
+
+  <form>
+      <input 
+          type='text'
+          id="name"
+          placeholder="What's their name?"/>
+      <input 
+          type='text'
+          id="quote"
+          placeholder='What is one of their famous quotes?'/>
+      <input 
+          type='text'
+          id="img"
+          placeholder='Paste an image URL'/>
+      <button>add muse</button>
+  </form>
+
+  <section id="muses-container"></section>
+
+  </main>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>

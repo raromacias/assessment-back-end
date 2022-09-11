@@ -1,4 +1,27 @@
+let muses = require(`./db.json`);
+let globalID = 4;
+
+
+
 module.exports = {
+
+    getMuses: (req, res) => {
+        console.log(res.data)
+       console.log(res.status(200).send(muses))
+    },
+    createMuse: (req, res) => {
+        let {name, quote, imageURL} = req.body;
+        console.log(name)
+        let newMuse = {
+            name,
+            quote,
+            imageURL,
+            id: globalID
+        }
+        muses.push(newMuse)
+        globalID++;
+        res.status(200).send(muses)
+    },
 
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
@@ -18,6 +41,27 @@ module.exports = {
         let randomFortune = fortunes[randomNum];
 
         res.status(200).send(randomFortune);
-    }
+    },
 
+    deleteMuse: (req, res) => {
+        let index = muses.findIndex(elem => elem.id === +req.params.id)
+        muses.splice(index, 1)
+        res.status(200).send(muses)
+    },
+    updateMuse: (req, res) => {
+        const {type} = req.body;
+       let index = muses.findIndex(elem => elem.id === +req.params.id)
+       if(type === `plus`){
+       let newQuote = "Hakuna Matata"
+       muses[index].push(newQuote)
+        res.status(200).send(muses)
+        }
+    },
+        deleteHouse: (req, res) => {
+            let index = houses.findIndex(elem => elem.id === +req.params.id)
+            houses.splice(index, 1)
+            res.status(200).send(houses)
+    
+    }
 }
+
