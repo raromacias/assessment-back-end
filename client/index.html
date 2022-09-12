@@ -10,11 +10,15 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="randomFortuneButton">Get your fortune told</button>
+    <button id="getMuses">Get muses</button>
+
+   
+    
+ <div id="displayMuses"></div>
     <header>
       <h1>Who's your Muse?</h1>
   </header>
   <main>
-
   <form>
       <input 
           type='text'
@@ -30,6 +34,13 @@
           placeholder='Paste an image URL'/>
       <button>add muse</button>
   </form>
+  <p>Edit Item</p>
+    <form id="editForm">
+      <input type="text" placeholder="Enter index to edit" id="editIndex"/>
+      <input type="text" placeholder="Enter new item" id="editInput"/>
+      <button>Submit</button>
+    </form>
+
 
   <section id="muses-container"></section>
 

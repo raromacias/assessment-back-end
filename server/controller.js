@@ -6,8 +6,8 @@ let globalID = 4;
 module.exports = {
 
     getMuses: (req, res) => {
-        console.log(res.data)
-       console.log(res.status(200).send(muses))
+        // console.log(res.data)
+       res.status(200).send(muses)
     },
     createMuse: (req, res) => {
         let {name, quote, imageURL} = req.body;
@@ -62,6 +62,13 @@ module.exports = {
             houses.splice(index, 1)
             res.status(200).send(houses)
     
+    },
+    editMuse: (req, res) => {
+        let index = req.params.id
+        let {item} = req.body
+
+        muses.splice(index, 1, item)
+        res.status(200).send(muses)
     }
-}
+ }
 
